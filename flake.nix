@@ -50,6 +50,7 @@
         };
         modules = [
           ./Configurations/Hosts/Nix-Surface/configuration.nix
+          inputs.stylix.nixosModules.stylix
         ];
       };
 
