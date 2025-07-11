@@ -1,35 +1,48 @@
-  # Base kernel modules for Surface Pro (Kaby Lake / i5-7300U)
+{ config, lib, pkgs, inputs, ... }:
 
-{ config, pkgs, lib, inputs, ... }:
+with lib;
 
-{
-  imports = [
-    #(import "${inputs.nixos-hardware}/microsoft/surface/common")
-    inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
-  ];
+let
+  cfg = config.surfaceSupport;
+in {
+  options.surfaceSupport = {
+    enable = mkEnableOption "Enable Surface Pro hardware support (Kaby Lake / i5-7300U)";
+  };
 
-  boot.kernelModules = [ "hid-microsoft" ];
+  config = mkIf cfg.enable {
 
-  boot.initrd.kernelModules = [
-    # Surface Aggregator Module (SAM) - essential for buttons, sensors, keyboard
-    "surface_aggregator"
-    "surface_aggregator_registry"
-    "surface_aggregator_hub"
-    "surface_hid_core"
-    "surface_hid"
+    ############################################################
+    # 🧩 Surface Pro 5 (2017) Kernel Modules & Hardware Support
+    ############################################################
 
-    # Intel Low Power Subsystem (keyboard, I2C, etc.)
-    "intel_lpss"
-    "intel_lpss_pci"
-    "8250_dw"
-  ];
+    imports = [
+      inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
+    ];
 
-  # You do NOT need IPTSd — touchscreen/pen should work via HID
-  services.iptsd.enable = lib.mkForce false;
+    boot.kernelModules = [
+      "hid-microsoft"
+    ];
 
-  # Optional: reduce flickering on some panels
-  # boot.kernelParams = [ "i915.enable_psr=0" ];
+    boot.initrd.kernelModules = [
 
-  # Optional: if specific modules cause problems
-  # boot.blacklistedKernelModules = [ "surface_gpe" ];
+      # Surface Aggregator Module (SAM)
+      "surface_aggregator"
+      "surface_aggregator_registry"
+      "surface_aggregator_hub"
+      "surface_hid_core"
+      "surface_hid"
+
+      # Intel Low Power Subsystem
+      "intel_lpss"
+      "intel_lpss_pci"
+      "8250_dw"
+    ];
+
+    # You do NOT need IPTSd — touchscreen/pen should work via HID
+    services.iptsd.enable = lib.mkForce false;
+
+    # Optional:
+    # boot.kernelParams = [ "i915.enable_psr=0" ];
+    # boot.blacklistedKernelModules = [ "surface_gpe" ];
+  };
 }
