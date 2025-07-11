@@ -27,7 +27,8 @@ in
     ../../../../Modules/Imported/Home-Manager/webapps/webapps.nix
 
     # Import Nyx Tools
-    ../../../../Misc/Nyx-tools/nyx.nix
+    ../../../../Misc/Nyx-Tools/nyx.nix
+    
   ];
     
 
