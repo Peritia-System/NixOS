@@ -5,7 +5,14 @@ let
   scriptTargetPath = "${nixDirectory}/Misc/Nyx-Tools/zsh/nyx-cleanup.zsh";
 in
 {
-  options.modules.nix-tool.enable = lib.mkEnableOption "Enable nix-tool Zsh function for Banner display.";
+  options.modules.nix-tool = {
+    enable = lib.mkEnableOption "Enable nix-tool Zsh function for Banner display.";
+
+    nixDirectory = lib.mkOption {
+      type = lib.types.str;
+      description = "Path to the main Nix directory used for scripts.";
+    };
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = [
