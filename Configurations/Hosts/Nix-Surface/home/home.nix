@@ -55,7 +55,7 @@ in
 
     
   modules.nix-tool = {
-    inherit username nixDirectory;
+    inherit nixDirectory;
     enable = true;
   }; 
   ################################################################
