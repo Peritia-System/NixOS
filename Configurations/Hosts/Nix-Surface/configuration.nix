@@ -26,6 +26,9 @@ in
     # Surface-specific hardware config
     ../../../Modules/Imported/System/Hardware/Surface/Custom-Kernel.nix
   
+    # Theme
+    ../../../Modules/Imported/Themes/KDE/basic-theme.nix
+
   ];
 
   ################################################################
