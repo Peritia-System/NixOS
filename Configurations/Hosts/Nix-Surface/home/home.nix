@@ -53,7 +53,11 @@ in
     enableAlias = false;      # Adds `nc` alias for convenience
   };
 
-  modules.nix-tool.enable = true;
+    
+  modules.nix-tool = {
+    inherit username nixDirectory;
+    enable = true;
+  }; 
   ################################################################
   # Package Selection
   ################################################################
