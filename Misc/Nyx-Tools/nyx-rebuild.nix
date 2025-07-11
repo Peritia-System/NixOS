@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixDirectory,... }:
 
 let
   cfg = config.modules.nyx-rebuild;
