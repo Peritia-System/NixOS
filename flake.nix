@@ -47,7 +47,7 @@
         specialArgs = {
           inherit inputs;
           host = "nix-surface";
-          nixDirectory = "~/NixOS";
+          nixDirectory = builtins.getEnv "HOME" + "/NixOS";
         };
         modules = [
           ./Configurations/Hosts/Nix-Surface/configuration.nix
