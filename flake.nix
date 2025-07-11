@@ -36,9 +36,6 @@
         };
         modules = [
           ./Configurations/Hosts/Default/configuration.nix
-          inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
-          inputs.stylix.nixosModules.stylix
-          inputs.home-manager.nixosModules.home-manager
         ];
       };
      
@@ -53,9 +50,6 @@
         };
         modules = [
           ./Configurations/Hosts/Nix-Surface/configuration.nix
-          inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
-          inputs.stylix.nixosModules.stylix
-          inputs.home-manager.nixosModules.home-manager
         ];
       };
 
