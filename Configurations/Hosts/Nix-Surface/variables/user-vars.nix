@@ -3,7 +3,7 @@ let
   username = "peritia";
 in
 {
-  inherit username nixDirectory;
+  inherit username;
   gitUsername = "Peritia-System";
   gitEmail = "Peritia@peritia.space";
 }
