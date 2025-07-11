@@ -4,18 +4,17 @@
 
 with lib;
 
+let
+  enable = config.ms-surface-custom-kernel.enable;
+in
 {
   options.ms-surface-custom-kernel.enable = mkEnableOption "Enable Microsoft Surface Custom Kernel";
-
-  config = mkIf config.ms-surface-custom-kernel.enable {
 
     ################################################################
     # 🔧 Hardware Support: Surface Pro 5 (Kaby Lake - i5-7300U)
     ################################################################
-    imports = [
-      # Hardware-specific modules from nixos-hardware
-      inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel
-    ];
+    imports = mkIf enable [
+      inputs.nixos-hardware.nixosModules.microsoft-surface-pro-intel  ];
 
     ################################################################
     # 🧠 Kernel Modules
@@ -26,14 +25,14 @@ with lib;
     ];
 
     boot.initrd.kernelModules = [
-      # Surface Aggregator Module (SAM) - essential for buttons, sensors, keyboard
+      # Surface Aggregator Module (SAM)
       "surface_aggregator"
       "surface_aggregator_registry"
       "surface_aggregator_hub"
       "surface_hid_core"
       "surface_hid"
 
-      # Intel Low Power Subsystem (keyboard, I2C, etc.)
+      # Intel Low Power Subsystem
       "intel_lpss"
       "intel_lpss_pci"
       "8250_dw"
