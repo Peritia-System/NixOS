@@ -27,7 +27,8 @@
     ############
 
     # Surface
-    ./Hardware/Surface/Custom-Kernel.nix
+    # Temp:
+    #./Hardware/Surface/Custom-Kernel.nix
 
     ###########
     # Default #

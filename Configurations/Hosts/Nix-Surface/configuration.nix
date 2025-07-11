@@ -21,6 +21,10 @@ in
 
     # Home Manager integration
     inputs.home-manager.nixosModules.home-manager
+
+    # Temp:
+    # Surface-specific hardware config
+    ../../Modules/Hardware/Surface/Custom-Kernel.nix
   
   ];
 
