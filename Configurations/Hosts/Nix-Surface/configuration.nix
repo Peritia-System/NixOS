@@ -34,7 +34,7 @@ in
 
   # Enable Custom Kernel for MS Surface
   # If you don't want to set this modify: gitdir/Modules/Imported/System/all-Sytem.nix or leave it false
-  ms-surface-custom-kernel.enable = false;
+  #ms-surface-custom-kernel.enable = false;
 
   # Enable desktop environment
   kde.enable = true;
