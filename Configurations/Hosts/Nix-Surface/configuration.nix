@@ -24,7 +24,7 @@ in
 
     # Temp:
     # Surface-specific hardware config
-    ../../Modules/Hardware/Surface/Custom-Kernel.nix
+    ../../../Modules/Imported/System/Hardware/Surface/Custom-Kernel.nix
   
   ];
 
