@@ -46,7 +46,8 @@
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
-          host = "Default";
+          host = "nix-surface";
+          nixDirectory = "~/NixOS"
         };
         modules = [
           ./Configurations/Hosts/Nix-Surface/configuration.nix
