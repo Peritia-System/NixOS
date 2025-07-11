@@ -2,7 +2,7 @@
 
 let
   # Load user-specific variables
-  userVars = import ./variables/user-var.nix;
+  userVars = import ./variables/user-vars.nix;
   inherit (userVars) username gitUsername gitEmail keyboardLayout;
 in
 {
