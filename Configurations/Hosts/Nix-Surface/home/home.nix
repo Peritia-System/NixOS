@@ -1,9 +1,8 @@
-# Users/Dulcis/home.nix
-{ config, nixDirectory,... }:
+{ config, nixDirectory, pkgs,... }:
 
 let
   # Import user-specific variables
-  userVars = import ./variables.nix;
+  userVars = import ../variables/user-vars.nix;
   inherit (userVars) username gitUsername gitEmail;
 in
 {
@@ -58,7 +57,6 @@ in
   # Package Selection
   ################################################################
   # Programs to install with Home Manager
-  nixpkgs.config.allowUnfree = true; 
   home.packages = import ./user-packages.nix { inherit pkgs; };
 
   ################################################################

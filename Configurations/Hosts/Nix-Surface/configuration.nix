@@ -76,7 +76,7 @@ in
     backupFileExtension = "preHMbackup";
 
     users.${username} = import ./home/home.nix {
-      inherit config nixDirectory;
+      inherit config nixDirectory pkgs;
     };
   };
 
