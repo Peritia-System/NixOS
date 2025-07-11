@@ -1,7 +1,7 @@
 # Import all modules so only needs to Import nyx.nix
    
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixDirectory, ... }:
 
 {
   imports = [
