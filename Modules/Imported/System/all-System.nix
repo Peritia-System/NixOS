@@ -1,7 +1,6 @@
 # Import all modules so configuration.nix only needs to Import all.nix
    
-
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports = [
