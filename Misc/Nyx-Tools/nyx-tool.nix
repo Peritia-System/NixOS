@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixDirectory,... }:
+{ config, lib, pkgs,... }:
 
 let
   cfg = config.modules.nix-tool;

@@ -1,8 +1,8 @@
-{ config, lib, pkgs, nixDirectory, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.modules.nyx-cleanup;
-  scriptTargetPath = "${nixDirectory}/Misc/Nyx-Tools/zsh/nyx-cleanup.zsh";
+  scriptTargetPath = "${cfg.nixDirectory}/Misc/Nyx-Tools/zsh/nyx-cleanup.zsh";
 in
 {
   options.modules.nyx-cleanup = {
@@ -11,6 +11,11 @@ in
     username = lib.mkOption {
       type = lib.types.str;
       description = "The name of the user this module applies to.";
+    };
+
+    nixDirectory = lib.mkOption {
+      type = lib.types.path;
+      description = "Path to the NixOS configuration directory.";
     };
 
     keepGenerations = lib.mkOption {
