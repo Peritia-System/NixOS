@@ -55,6 +55,21 @@
         ];
       };
 
+      ############################################################
+      # 💻 Odysseus PC Config
+      ############################################################
+      Odysseus = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          host = "Odysseus";
+          nixDirectory = builtins.getEnv "HOME" + "/NixOS";
+        };
+        modules = [
+          ./Configurations/Hosts/Odysseus/configuration.nix
+          inputs.stylix.nixosModules.stylix
+        ];
+      };
     };
   };
 }
